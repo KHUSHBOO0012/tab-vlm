@@ -10,27 +10,21 @@ tab-vlm/
 │   ├── temporal_anomaly_benchmark.json   # benchmark questions + metadata
 │   └── benchmark_data.csv                # flat CSV view of the benchmark
 ├── src/
-│   └── eval/           # evaluation pipeline (API + HF models)
-│       ├── main.py
-│       ├── inference.py
-│       └── data_prep.py
-├── app/
-│   ├── download_image.py   # download benchmark images
-│   └── human_eval.py       # Gradio app for human evaluation
-├── utils/
-│   ├── benchmark_to_csv.py
-│   ├── data_analysis.py
-│   ├── fix_json_responses.py
-│   └── modify_json_question.py
+│   ├── eval/           # evaluation pipeline (API + HF models)
+│   |   ├── main.py
+│   |   ├── inference.py
+│   |   └── data_prep.py
+    ├── utils/
+    │   └── download_image.py   # download benchmark images
 ├── requirements.txt
-└── .env.example
+└── .env
 ```
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt
-cp .env.example .env  # fill in API keys for GPT/Claude/Gemini models
+# fill in API keys for GPT/Gemini models in the .env file
 ```
 
 ## Download benchmark images
@@ -38,7 +32,7 @@ cp .env.example .env  # fill in API keys for GPT/Claude/Gemini models
 Benchmark images are not shipped with the code. Download them with:
 
 ```bash
-python app/download_image.py
+python utils/download_image.py
 ```
 
 ## Run evaluation
@@ -54,17 +48,3 @@ python main.py \
 
 Supported `--model` values: `gpt4o`, `gpt4o-mini`, `claude`, `claude4`, `qwen`, `internvl`, `deepseek`, `gemma3`.
 
-## Human evaluation UI
-
-```bash
-python app/human_eval.py
-```
-
-## Citation
-
-```bibtex
-@inproceedings{cultural_anachronism_vlm_2026,
-  title  = {On the Cultural Anachronism and Temporal Reasoning in Vision Language Models},
-  year   = {2026},
-}
-```
