@@ -1,0 +1,29 @@
+# Core
+numpy
+pandas
+tqdm
+python-dotenv
+requests
+Pillow
+
+# API-based VLMs
+openai
+anthropic
+google-generativeai
+
+# Open-source VLMs (HuggingFace)
+torch
+transformers>=4.45.0
+accelerate
+sentencepiece
+einops
+timm
+
+# Analysis / utilities
+matplotlib
+seaborn
+plotly
+
+# Human-eval app
+gradio
+urllib3
